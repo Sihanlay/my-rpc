@@ -13,7 +13,6 @@ import (
 	status "google.golang.org/grpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	test "grpc/examples/helloworld/test"
 	reflect "reflect"
 	sync "sync"
 )
@@ -30,8 +29,8 @@ type HelloRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name  *test.Newdata `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
-	Items []string      `protobuf:"bytes,2,rep,name=items,proto3" json:"items,omitempty"`
+	Name  *Newdata `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Items []string `protobuf:"bytes,2,rep,name=items,proto3" json:"items,omitempty"`
 }
 
 func (x *HelloRequest) Reset() {
@@ -66,7 +65,7 @@ func (*HelloRequest) Descriptor() ([]byte, []int) {
 	return file_helloworld_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *HelloRequest) GetName() *test.Newdata {
+func (x *HelloRequest) GetName() *Newdata {
 	if x != nil {
 		return x.Name
 	}
@@ -292,7 +291,7 @@ var file_helloworld_proto_goTypes = []interface{}{
 	(*HelloReply)(nil),   // 1: helloworld.HelloReply
 	(*PlusRequest)(nil),  // 2: helloworld.PlusRequest
 	(*PlusReply)(nil),    // 3: helloworld.PlusReply
-	(*test.Newdata)(nil), // 4: newdata
+	(*Newdata)(nil),      // 4: newdata
 }
 var file_helloworld_proto_depIdxs = []int32{
 	4, // 0: helloworld.HelloRequest.name:type_name -> newdata
@@ -314,6 +313,7 @@ func file_helloworld_proto_init() {
 	if File_helloworld_proto != nil {
 		return
 	}
+	file_test_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_helloworld_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*HelloRequest); i {
