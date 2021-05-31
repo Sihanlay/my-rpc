@@ -7,6 +7,10 @@
 package helloworld
 
 import (
+	context "context"
+	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -374,4 +378,156 @@ func file_helloworld_proto_init() {
 	file_helloworld_proto_rawDesc = nil
 	file_helloworld_proto_goTypes = nil
 	file_helloworld_proto_depIdxs = nil
+}
+
+// Reference imports to suppress errors if they are not otherwise used.
+var _ context.Context
+var _ grpc.ClientConnInterface
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the grpc package it is being compiled against.
+const _ = grpc.SupportPackageIsVersion6
+
+// GreeterClient is the client API for Greeter service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type GreeterClient interface {
+	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+	Plus(ctx context.Context, in *PlusRequest, opts ...grpc.CallOption) (*PlusReply, error)
+	SayHelloAfterDelay(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
+}
+
+type greeterClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewGreeterClient(cc grpc.ClientConnInterface) GreeterClient {
+	return &greeterClient{cc}
+}
+
+func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
+	out := new(HelloReply)
+	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHello", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *greeterClient) Plus(ctx context.Context, in *PlusRequest, opts ...grpc.CallOption) (*PlusReply, error) {
+	out := new(PlusReply)
+	err := c.cc.Invoke(ctx, "/helloworld.Greeter/Plus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *greeterClient) SayHelloAfterDelay(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
+	out := new(HelloReply)
+	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHelloAfterDelay", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// GreeterServer is the server API for Greeter service.
+type GreeterServer interface {
+	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
+	Plus(context.Context, *PlusRequest) (*PlusReply, error)
+	SayHelloAfterDelay(context.Context, *HelloRequest) (*HelloReply, error)
+}
+
+// UnimplementedGreeterServer can be embedded to have forward compatible implementations.
+type UnimplementedGreeterServer struct {
+}
+
+func (*UnimplementedGreeterServer) SayHello(context.Context, *HelloRequest) (*HelloReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
+}
+func (*UnimplementedGreeterServer) Plus(context.Context, *PlusRequest) (*PlusReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Plus not implemented")
+}
+func (*UnimplementedGreeterServer) SayHelloAfterDelay(context.Context, *HelloRequest) (*HelloReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SayHelloAfterDelay not implemented")
+}
+
+func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
+	s.RegisterService(&_Greeter_serviceDesc, srv)
+}
+
+func _Greeter_SayHello_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HelloRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GreeterServer).SayHello(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/helloworld.Greeter/SayHello",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GreeterServer).SayHello(ctx, req.(*HelloRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Greeter_Plus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(PlusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GreeterServer).Plus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/helloworld.Greeter/Plus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GreeterServer).Plus(ctx, req.(*PlusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Greeter_SayHelloAfterDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HelloRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GreeterServer).SayHelloAfterDelay(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/helloworld.Greeter/SayHelloAfterDelay",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GreeterServer).SayHelloAfterDelay(ctx, req.(*HelloRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _Greeter_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "helloworld.Greeter",
+	HandlerType: (*GreeterServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SayHello",
+			Handler:    _Greeter_SayHello_Handler,
+		},
+		{
+			MethodName: "Plus",
+			Handler:    _Greeter_Plus_Handler,
+		},
+		{
+			MethodName: "SayHelloAfterDelay",
+			Handler:    _Greeter_SayHelloAfterDelay_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "helloworld.proto",
 }
