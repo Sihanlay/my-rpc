@@ -1,7 +1,7 @@
 syntax = "proto3";
 option go_package = "grpc/examples/helloworld/helloworld";
 package helloworld;
-import "test.proto";
+//import "test.proto";
 
 service Greeter {
     rpc SayHello (HelloRequest) returns (HelloReply) {}
@@ -13,9 +13,11 @@ message HelloRequest {
     string name = 1;
     repeated string items = 2;
 }
-
+message Newdata {
+    string name = 1;
+}
 message HelloReply {
-    test.newdata message = 1;
+    Newdata message = 1;
     repeated string items = 2;
 }
 
