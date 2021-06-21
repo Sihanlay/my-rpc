@@ -2,6 +2,6 @@ syntax = "proto3";
 package test;
 option go_package = "grpc/examples/helloworld/helloworld";
 
-message newdata {
+message Newdata {
     string name = 1;
 }
