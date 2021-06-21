@@ -17,7 +17,7 @@ message HelloRequest {
     //string name = 1;
 //}
 message HelloReply {
-    test.Newdata msg = 1;
+    newdata msg = 1;
     repeated string items = 2;
 }
 
