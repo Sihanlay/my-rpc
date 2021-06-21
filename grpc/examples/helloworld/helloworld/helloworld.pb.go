@@ -137,108 +137,6 @@ func (x *HelloReply) GetItems() []string {
 	return nil
 }
 
-type PlusRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	A int64 `protobuf:"varint,1,opt,name=a,proto3" json:"a,omitempty"`
-	B int64 `protobuf:"varint,2,opt,name=b,proto3" json:"b,omitempty"`
-}
-
-func (x *PlusRequest) Reset() {
-	*x = PlusRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_helloworld_proto_msgTypes[2]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *PlusRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PlusRequest) ProtoMessage() {}
-
-func (x *PlusRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_helloworld_proto_msgTypes[2]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PlusRequest.ProtoReflect.Descriptor instead.
-func (*PlusRequest) Descriptor() ([]byte, []int) {
-	return file_helloworld_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *PlusRequest) GetA() int64 {
-	if x != nil {
-		return x.A
-	}
-	return 0
-}
-
-func (x *PlusRequest) GetB() int64 {
-	if x != nil {
-		return x.B
-	}
-	return 0
-}
-
-type PlusReply struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Result int64 `protobuf:"varint,1,opt,name=result,proto3" json:"result,omitempty"`
-}
-
-func (x *PlusReply) Reset() {
-	*x = PlusReply{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_helloworld_proto_msgTypes[3]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *PlusReply) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*PlusReply) ProtoMessage() {}
-
-func (x *PlusReply) ProtoReflect() protoreflect.Message {
-	mi := &file_helloworld_proto_msgTypes[3]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use PlusReply.ProtoReflect.Descriptor instead.
-func (*PlusReply) Descriptor() ([]byte, []int) {
-	return file_helloworld_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *PlusReply) GetResult() int64 {
-	if x != nil {
-		return x.Result
-	}
-	return 0
-}
-
 var File_helloworld_proto protoreflect.FileDescriptor
 
 var file_helloworld_proto_rawDesc = []byte{
@@ -252,28 +150,15 @@ var file_helloworld_proto_rawDesc = []byte{
 	0x6c, 0x79, 0x12, 0x25, 0x0a, 0x03, 0x6d, 0x73, 0x67, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32,
 	0x13, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x6e, 0x65, 0x77,
 	0x64, 0x61, 0x74, 0x61, 0x52, 0x03, 0x6d, 0x73, 0x67, 0x12, 0x14, 0x0a, 0x05, 0x69, 0x74, 0x65,
-	0x6d, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x05, 0x69, 0x74, 0x65, 0x6d, 0x73, 0x22,
-	0x29, 0x0a, 0x0b, 0x50, 0x6c, 0x75, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0c,
-	0x0a, 0x01, 0x61, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x61, 0x12, 0x0c, 0x0a, 0x01,
-	0x62, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x01, 0x62, 0x22, 0x23, 0x0a, 0x09, 0x50, 0x6c,
-	0x75, 0x73, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x12, 0x16, 0x0a, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c,
-	0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x72, 0x65, 0x73, 0x75, 0x6c, 0x74, 0x32,
-	0xcd, 0x01, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65, 0x72, 0x12, 0x3e, 0x0a, 0x08, 0x53,
-	0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x18, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77,
-	0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x1a, 0x16, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x48,
-	0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x38, 0x0a, 0x04, 0x50,
-	0x6c, 0x75, 0x73, 0x12, 0x17, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64,
-	0x2e, 0x50, 0x6c, 0x75, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x15, 0x2e, 0x68,
-	0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x50, 0x6c, 0x75, 0x73, 0x52, 0x65,
-	0x70, 0x6c, 0x79, 0x22, 0x00, 0x12, 0x48, 0x0a, 0x12, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c,
-	0x6f, 0x41, 0x66, 0x74, 0x65, 0x72, 0x44, 0x65, 0x6c, 0x61, 0x79, 0x12, 0x18, 0x2e, 0x68, 0x65,
-	0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72,
-	0x6c, 0x64, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x42,
-	0x25, 0x5a, 0x23, 0x67, 0x72, 0x70, 0x63, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x73,
-	0x2f, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2f, 0x68, 0x65, 0x6c, 0x6c,
-	0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6d, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09, 0x52, 0x05, 0x69, 0x74, 0x65, 0x6d, 0x73, 0x32,
+	0x49, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65, 0x72, 0x12, 0x3e, 0x0a, 0x08, 0x53, 0x61,
+	0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x18, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f,
+	0x72, 0x6c, 0x64, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x16, 0x2e, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2e, 0x48, 0x65,
+	0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x70, 0x6c, 0x79, 0x22, 0x00, 0x42, 0x25, 0x5a, 0x23, 0x67, 0x72,
+	0x70, 0x63, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x73, 0x2f, 0x68, 0x65, 0x6c, 0x6c,
+	0x6f, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x2f, 0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x77, 0x6f, 0x72, 0x6c,
+	0x64, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -288,24 +173,18 @@ func file_helloworld_proto_rawDescGZIP() []byte {
 	return file_helloworld_proto_rawDescData
 }
 
-var file_helloworld_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_helloworld_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_helloworld_proto_goTypes = []interface{}{
 	(*HelloRequest)(nil), // 0: helloworld.HelloRequest
 	(*HelloReply)(nil),   // 1: helloworld.HelloReply
-	(*PlusRequest)(nil),  // 2: helloworld.PlusRequest
-	(*PlusReply)(nil),    // 3: helloworld.PlusReply
-	(*Newdata)(nil),      // 4: helloworld.newdata
+	(*Newdata)(nil),      // 2: helloworld.newdata
 }
 var file_helloworld_proto_depIdxs = []int32{
-	4, // 0: helloworld.HelloReply.msg:type_name -> helloworld.newdata
+	2, // 0: helloworld.HelloReply.msg:type_name -> helloworld.newdata
 	0, // 1: helloworld.Greeter.SayHello:input_type -> helloworld.HelloRequest
-	2, // 2: helloworld.Greeter.Plus:input_type -> helloworld.PlusRequest
-	0, // 3: helloworld.Greeter.SayHelloAfterDelay:input_type -> helloworld.HelloRequest
-	1, // 4: helloworld.Greeter.SayHello:output_type -> helloworld.HelloReply
-	3, // 5: helloworld.Greeter.Plus:output_type -> helloworld.PlusReply
-	1, // 6: helloworld.Greeter.SayHelloAfterDelay:output_type -> helloworld.HelloReply
-	4, // [4:7] is the sub-list for method output_type
-	1, // [1:4] is the sub-list for method input_type
+	1, // 2: helloworld.Greeter.SayHello:output_type -> helloworld.HelloReply
+	2, // [2:3] is the sub-list for method output_type
+	1, // [1:2] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
 	1, // [1:1] is the sub-list for extension extendee
 	0, // [0:1] is the sub-list for field type_name
@@ -342,30 +221,6 @@ func file_helloworld_proto_init() {
 				return nil
 			}
 		}
-		file_helloworld_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PlusRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_helloworld_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*PlusReply); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -373,7 +228,7 @@ func file_helloworld_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_helloworld_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -400,8 +255,6 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GreeterClient interface {
 	SayHello(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
-	Plus(ctx context.Context, in *PlusRequest, opts ...grpc.CallOption) (*PlusReply, error)
-	SayHelloAfterDelay(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error)
 }
 
 type greeterClient struct {
@@ -421,29 +274,9 @@ func (c *greeterClient) SayHello(ctx context.Context, in *HelloRequest, opts ...
 	return out, nil
 }
 
-func (c *greeterClient) Plus(ctx context.Context, in *PlusRequest, opts ...grpc.CallOption) (*PlusReply, error) {
-	out := new(PlusReply)
-	err := c.cc.Invoke(ctx, "/helloworld.Greeter/Plus", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *greeterClient) SayHelloAfterDelay(ctx context.Context, in *HelloRequest, opts ...grpc.CallOption) (*HelloReply, error) {
-	out := new(HelloReply)
-	err := c.cc.Invoke(ctx, "/helloworld.Greeter/SayHelloAfterDelay", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // GreeterServer is the server API for Greeter service.
 type GreeterServer interface {
 	SayHello(context.Context, *HelloRequest) (*HelloReply, error)
-	Plus(context.Context, *PlusRequest) (*PlusReply, error)
-	SayHelloAfterDelay(context.Context, *HelloRequest) (*HelloReply, error)
 }
 
 // UnimplementedGreeterServer can be embedded to have forward compatible implementations.
@@ -452,12 +285,6 @@ type UnimplementedGreeterServer struct {
 
 func (*UnimplementedGreeterServer) SayHello(context.Context, *HelloRequest) (*HelloReply, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SayHello not implemented")
-}
-func (*UnimplementedGreeterServer) Plus(context.Context, *PlusRequest) (*PlusReply, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Plus not implemented")
-}
-func (*UnimplementedGreeterServer) SayHelloAfterDelay(context.Context, *HelloRequest) (*HelloReply, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method SayHelloAfterDelay not implemented")
 }
 
 func RegisterGreeterServer(s *grpc.Server, srv GreeterServer) {
@@ -482,42 +309,6 @@ func _Greeter_SayHello_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Greeter_Plus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(PlusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GreeterServer).Plus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/helloworld.Greeter/Plus",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreeterServer).Plus(ctx, req.(*PlusRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Greeter_SayHelloAfterDelay_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(HelloRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(GreeterServer).SayHelloAfterDelay(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/helloworld.Greeter/SayHelloAfterDelay",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(GreeterServer).SayHelloAfterDelay(ctx, req.(*HelloRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 var _Greeter_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "helloworld.Greeter",
 	HandlerType: (*GreeterServer)(nil),
@@ -525,14 +316,6 @@ var _Greeter_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SayHello",
 			Handler:    _Greeter_SayHello_Handler,
-		},
-		{
-			MethodName: "Plus",
-			Handler:    _Greeter_Plus_Handler,
-		},
-		{
-			MethodName: "SayHelloAfterDelay",
-			Handler:    _Greeter_SayHelloAfterDelay_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
